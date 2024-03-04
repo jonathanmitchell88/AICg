@@ -118,13 +118,13 @@ quartetTableResolvedAICg <- function(RQT,alpha,diff) {
 
 # Parameters to be set by the user.
 
+gtrees <-  read.tree(file=system.file("extdata","dataYeastRokas",package="MSCquartets")) # Gene trees file in Newick format.
 alpha <- 0.01 # Significance level for Holm-Bonferroni adjusted Akaike weights.
 beta <- 1/3 # Select star tree model when its AICg is no more than that of model T3 and the network model and its AICg weight exceeds this value.
 diff <- 0.1 # Equals the T3 bias correction minus the star tree penalty.
 
 # Inference of a network.
 
-gtrees <-  read.tree(file=system.file("extdata","dataYeastRokas",package="MSCquartets")) # Gene trees file in Newick format.
 tnames <- taxonNames(gtrees)
 QT <- quartetTable(gtrees)
 RQT <- quartetTableResolved(QT)
